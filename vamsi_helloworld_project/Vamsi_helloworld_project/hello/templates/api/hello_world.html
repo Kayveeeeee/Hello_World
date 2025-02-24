@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World - Typing Animation</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 3rem;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        #typing {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="typing"></div>
+
+    <script>
+        const text = "Hello World";
+        const typingElement = document.getElementById("typing");
+        let index = 0;
+
+        function typeLetter() {
+            if (index < text.length) {
+                typingElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeLetter, 150); // Adjust speed here
+            } else {
+                typingElement.style.borderRight = "none"; // Remove cursor after typing
+            }
+        }
+
+        typeLetter();
+    </script>
+</body>
+</html>
